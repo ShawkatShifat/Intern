@@ -1,0 +1,34 @@
+.userProfile{
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/assets/img/dashtablebg.png'); 
+    background-size: cover; 
+    background-position: center;
+    margin-top: 0;
+  }
+
+  #pfcard{
+    height: auto;
+    margin-top: -200px;
+  }
+
+  .pfp {
+    height: 90px;
+    display: flex;
+    justify-content: flex-end; /* Aligns image to the right */
+  }
+  
+  .pfp img {
+    height: 100%; 
+    width: auto; 
+    border-radius: 50%;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between; /* Ensures title and image are spaced apart */
+    align-items: center; /* Vertically centers both items */
+  }

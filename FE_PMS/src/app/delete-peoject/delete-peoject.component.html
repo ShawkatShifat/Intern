@@ -1,0 +1,11 @@
+<div class="cardCD">
+    <div class="card">
+        <div class="card-header">
+            <h1>Are you sure you want to delete {{data.project.name}}?</h1> 
+        </div>     
+        <div class="card-body d-flex justify-content-center">
+            <button type="button" id="cancelBtn" class="btn btn-primary" data-bs-dismiss="modal" (click)="onClose()">Cancel</button>
+            <button type="button" id="deleteBtn" class="btn btn-danger ms-3" (click)="onDeleteClick(data.project.id)">Delete</button>
+        </div>
+    </div>
+</div>

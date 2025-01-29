@@ -1,0 +1,129 @@
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    background: #90d5fd57; 
+    color: rgb(0, 0, 0);
+    height: 64px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+  }
+  
+  .hamburger-lines {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    width: 30px;
+    cursor: pointer;
+    z-index: 1002;
+  }
+  
+  .hamburger-lines .line {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: rgb(0, 0, 0);
+    border-radius: 5px;
+  }
+  
+  .menu-items {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+  }
+  
+  .menu-items li {
+    margin: 0 1rem;
+  }
+  
+  .menu-items a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .menu-items a:hover {
+    color: #ffd700; 
+  }
+  
+
+  input[type="checkbox"] {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .hamburger-lines {
+      display: flex;
+    }
+  
+    .menu-items {
+      flex-direction: column;
+      position: absolute;
+      top: 64px;
+      left: -100%;
+      background: #007bff;
+      width: 100%;
+      height: calc(100vh - 64px);
+      padding-top: 20px;
+      transition: left 0.3s ease-in-out;
+      z-index: 1003;
+    }
+  
+    .menu-items li {
+      text-align: center;
+      margin: 1rem 0;
+    }
+  
+    input[type="checkbox"]:checked ~ .menu-items {
+      left: 0;
+    }
+  
+    input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+  
+    input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+      opacity: 0;
+    }
+  
+    input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  }
+  
+
+.logo-header-container {
+  display: flex;
+  align-items: center; 
+  gap: 10px; 
+}
+
+.header-title {
+  margin: 0;  
+  font-size: 1.25rem; 
+}
+
+
+.logo img {
+  max-width: 80px;
+  height: 50px;
+}
+
+.main-content {
+    padding-top: 64px;
+  }

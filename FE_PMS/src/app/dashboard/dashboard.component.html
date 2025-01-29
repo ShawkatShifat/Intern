@@ -1,0 +1,114 @@
+
+<div class="searchProject">
+  <div class="searchProjectImage">
+    <div class="container justify-content-center align-items-center align-content-center">
+      <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-11">
+          <div class="card p-4">
+            <h3 class="text-center mb-4 fs-5">SEARCH PROJECTS</h3>
+            <form (ngSubmit)="searchProjects()" class="d-flex justify-content-center">
+              <div class="d-flex align-items-center mb-3 me-3">
+                <label for="startDateTime" class="form-label me-2 mb-2">Start Date:</label>
+                <input
+                  type="date"
+                  [(ngModel)]="startDateTime"
+                  [ngModelOptions]="{ standalone: true }"
+                  id="startDateTime"
+                  name="startDateTime"
+                  class="form-control"
+                  required
+                  #startDateTimeCtrl = "ngModel"
+                >
+              </div>
+              <div class="d-flex align-items-center mb-3 me-3">
+                <label for="endDateTime" class="form-label me-2 mb-0">End Date:</label>
+                <input
+                  type="date"
+                  [(ngModel)]="endDateTime"
+                  [ngModelOptions]="{ standalone: true }"
+                  id="endDateTime"
+                  name="endDateTime"
+                  class="form-control"
+                  required
+                  #endDateTimeCtrl = "ngModel"
+                >
+              </div>
+              <div class="form-group mt-1">
+                <button
+                type="submit"
+                class="btn btn-primary btn-block"
+                  [disabled]="startDateTimeCtrl.invalid || endDateTimeCtrl.invalid"
+              >
+                Search
+              </button>
+              </div>
+              <div *ngIf="endDateTime < startDateTime && endDateTimeCtrl.touched" class="text-danger">
+                End Date must be greater than Start Date.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="dashtablebg">
+<div class="container mt-5 dash">
+    <h3>Projects</h3>
+    <div *ngIf="!isLoading">
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Intro</th>
+              <th scope="col">Status</th>
+              <th scope="col">Start Date</th>
+              <th scope="col">End Date</th>
+              <th scope="col">Owner Name</th>
+              <th scope="col">Owner Email</th>
+              <th scope="col">Members Info</th>
+              <th scope="col">Actions</th>
+              <th scope="col">Add Member</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let project of projectData">
+              <td>{{ project.name }}</td>
+              <td>{{ project.intro }}</td>
+              <td>{{ project.status }}</td>
+              <td>{{ project.startDateTime | date:'dd-MM-yyyy'  }}</td>
+              <td>{{ project.endDateTime  | date:'dd-MM-yyyy' }}</td>
+              <td>{{ project.owner.name }}</td>
+              <td>{{ project.owner.email }}</td>
+              <td>
+                <ul>
+                  <li *ngFor="let member of project.members">
+                    {{ member.name }} ({{ member.email }})
+                  </li>
+                </ul>
+              </td>
+              <td class="text-center d-flex flex-column">
+                <button type="button" class="btn btn-primary btn-block" id="viewBtn" (click)="openProjectDetail(project)">
+                  View Details
+                </button>
+                <button *ngIf="userMap.get(project.owner.id)"  type="button" id="editBtn" class="btn btn-success btn-block my-3" (click)="onEditClick(project)">
+                  Edit
+                </button>
+                <button  *ngIf="userMap.get(project.owner.id)"  type="button" id="deleteBtn" class="btn btn-danger btn-block" (click)="OnDelete(project)">
+                  Delete
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-primary btn-block" (click)="addMember(project.id)">
+                  Add Member
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

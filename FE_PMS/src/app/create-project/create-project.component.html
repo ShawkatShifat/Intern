@@ -1,0 +1,113 @@
+<div class="createProject">
+  <div class="container justify-content-center align-items-center align-content-center">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card p-4">
+          <h3 class="text-center mb-4 fs-3">Rural Development Project Management <br>& Monitoring System</h3>
+          <h3 class="text-center mb-4 fs-5">CREATE PROJECT</h3>
+          <form #projectForm="ngForm" (ngSubmit)="createProject()">
+            <div class="form-group mb-3">
+              <label for="name">Name:</label>
+              <input
+                type="text"
+                [(ngModel)]="name"
+                [ngModelOptions]="{ standalone: true }"
+                id="name"
+                name="name"
+                class="form-control"
+                placeholder="Name"
+                required
+                #nameCtrl="ngModel"
+              >
+              <div *ngIf="nameCtrl.invalid && nameCtrl.touched" class="text-danger">
+                Project name is required.
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <label for="intro">Intro:</label>
+              <input
+                type="text"
+                [(ngModel)]="intro"
+                [ngModelOptions]="{ standalone: true }"
+                id="intro"
+                name="intro"
+                class="form-control"
+                placeholder="Intro"
+                required
+                #introCtrl="ngModel"
+              >
+              <div *ngIf="introCtrl.invalid && introCtrl.touched" class="text-danger">
+                Project Intro is required.
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <label for="status">Status :</label>
+              <select
+                [(ngModel)]="status"
+                [ngModelOptions]="{ standalone: true }"
+                id="status"
+                name="status"
+                class="form-control"
+                required
+                #statusCtrl = "ngModel"
+              >
+                <option value="-1" disabled selected>Select Status</option>
+                <option value="0">PRE</option>
+                <option value="1">START</option>
+                <option value="2">END</option>
+              </select>
+              <div *ngIf="statusCtrl.invalid && statusCtrl.touched" class="text-danger">
+                Project Status is required.
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <label for="startDateTime">Start Date:</label>
+              <input
+                type="date"
+                [(ngModel)]="startDateTime"
+                [ngModelOptions]="{ standalone: true }"
+                id="startDateTime"
+                name="startDateTime"
+                class="form-control"
+                placeholder="Start Date"
+                required
+                #startDateTimeCtrl = "ngModel"
+              >
+              <div *ngIf="startDateTimeCtrl.invalid && startDateTimeCtrl.touched" class="text-danger">
+                Status time is required.
+              </div>
+            </div>
+            <div class="form-group mb-4">
+              <label for="endDateTime">End Date:</label>
+              <input
+                type="date"
+                [(ngModel)]="endDateTime"
+                [ngModelOptions]="{ standalone: true }"
+                id="endDateTime"
+                name="endDateTime"
+                class="form-control"
+                placeholder="End Date"
+                #endDateTimeCtrl="ngModel"
+              >
+              <div *ngIf="endDateTime < startDateTime && endDateTimeCtrl.touched" class="text-danger">
+                End Date must be greater than Start Date.
+              </div>
+            </div>
+            <div class="d-flex justify-content-center mt-3 flex-column">
+              <button
+                type="submit"
+                class="btn btn-primary btn-block"
+                [disabled]="nameCtrl.invalid  ||
+                introCtrl.invalid ||
+                statusCtrl.invalid ||
+                startDateTimeCtrl.invalid"
+              >
+                Create Project
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

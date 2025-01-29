@@ -1,0 +1,43 @@
+<header class="navbar">
+  <div class="navbar-container">
+    <!-- Hamburger Menu Checkbox -->
+    <input type="checkbox" id="menu-toggle" />
+    <div class="hamburger-lines">
+      <span class="line line1"></span>
+      <span class="line line2"></span>
+      <span class="line line3"></span>
+    </div>
+    
+    <div class="logo-header-container">
+      <!-- Logo -->
+      <div class="logo">
+        <a [routerLink]="['/layout/dashboard']">
+          <img src="/assets/img/dphe-logo.png" style="max-width:80px; height: 50px">
+        </a>
+      </div>
+
+      <h3 class="header-title fs-5" style=" color:rgb(0, 0, 0);;">Rural Development Project Management & Monitoring System</h3>
+    </div>
+    <ul class="menu-items">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/layout/dashboard']">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/layout/tabledata']">User Table</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/layout/createProject']">Create Project</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/layout/user-profile']">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="[]" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>

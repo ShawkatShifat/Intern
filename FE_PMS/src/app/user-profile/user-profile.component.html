@@ -1,0 +1,65 @@
+<div class="userProfile">
+  <div class="container">
+    <div class=" m-5">
+      <div class="row">
+        <div class="col-md-12">
+        <div class="card mb-4" id="pfcard">
+          <div class="card-header">
+            <div class="profile-info">
+              <h3 class="d-flex align-content-center"><strong>Profile</strong></h3>
+              <h4>{{userData.name}}</h4>
+            </div>
+            <div class="pfp">
+              <img src="/assets/img/pfp.png">
+            </div>
+          </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <p><strong>Usename: </strong> {{ userData.username }}</p>
+                  <p><strong>Full Name: </strong> {{userData.name}} </p>
+                  <p><strong>Email: </strong> {{ userData.email}}</p>
+                  <p><strong>Contact Number: </strong> {{ userData.mobileNo }}</p>
+                  <p><strong>Owned Projects: </strong>99</p>
+                  <p><strong>Member of Projects: </strong>99</p>
+                  <p><strong>Designation: </strong>Officer</p>
+                  <p><strong>Department: </strong>Department of Public Health & Engineering </p>
+                  <p><strong>District: </strong>Cumilla</p>
+                  <p><strong>Sub-district: </strong>Titas</p>
+                </div>
+                <!-- <div class="col-md-6">
+                  <p><strong>Start Date:</strong> {{ project.startDateTime | date:'dd-MM-yyyy'}}</p>
+                  <p><strong>End Date:</strong> {{ project.endDateTime | date:'dd-MM-yyyy'}}</p>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <!-- <div class="card">
+            <div class="card-header">
+              <h4>Assign Members to Project</h4>
+            </div>
+            <div class="card-body">
+              <form #memberForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="form-group mb-3">
+                  <label for="selectedMember">Select Member:</label>
+                  <ng-multiselect-dropdown
+                    [settings]="dropdownSettings"
+                    [data]="dropDownData"
+                    [(ngModel)]="project.members.id"
+                    (onSelect)="onItemSelect($event)"
+                    (onDeSelect)="onDeSelect($event)">
+                  </ng-multiselect-dropdown>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button type="submit" class="btn btn-primary" [disabled]="isButtonDisable" (click)="assign()">
+                    Assign Members
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

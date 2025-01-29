@@ -1,0 +1,66 @@
+.table {
+  background-color: #f8f9fa; 
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table td, .table th {
+  vertical-align: middle; 
+  padding: 12px;
+  text-align: center; 
+}
+
+.table th {
+  background-color: #0942e0af;
+  color: rgb(0, 0, 0); 
+}
+
+.img-thumbnail {
+  border-radius: 50%;
+  width: 50px; 
+  height: 50px;
+  object-fit: cover; 
+}
+.pagination {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.page-item {
+  margin: 0 5px;
+}
+
+.page-link {
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 8px 16px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.page-link:hover {
+  background-color: #acd4ff;
+}
+
+.page-item.disabled .page-link {
+  background-color: #e9ecef;
+  color: #6c757d;
+}
+
+.page-item.active .page-link {
+  background-color: #0056b3;
+  color: white;
+}
+
+.userTable{
+  height: 110vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/assets/img/dashtablebg.png'); 
+  background-size: cover; 
+  background-position: center;
+  margin-top: -170px;
+}

@@ -1,0 +1,31 @@
+<div class="card">
+    <div>
+        <button class="btn btn-danger position-absolute top-0 end-0 p-1" id="closeBtn" (click)="onClose()">Close</button>
+    </div>
+    <div class="card-header">
+        <h1>Project Details</h1>
+        <h4>Project Name : {{ data.project.name }}</h4>
+    </div>
+    <div class="card-body">
+        <p><strong>Intro:</strong> {{ data.project.intro }}</p>
+        <p><strong>Status:</strong> {{ data.project.status }}</p>
+        <p><strong>Start Date:</strong> {{ data.project.startDateTime | date:'dd-MM-yyyy' }}</p>
+        <p><strong>End Date:</strong> {{ data.project.endDateTime  | date:'dd-MM-yyyy'}}</p>
+        <p><strong>Project Owner Name:</strong> {{ data.project.owner.name}}</p>
+        <p><strong>Project Owner Email:</strong> {{ data.project.owner.email}}</p>
+        <p><strong>Project Owner Contact:</strong> {{ data.project.owner.mobileNo}}</p>
+    </div>
+    <div *ngIf="data.project.members.length>0" class="card-header">
+        <h4>Assigned Project Members</h4>
+    </div>
+    <div class="mt-2 ">
+        <ul *ngFor="let member of data.project.members">
+            <div  class="card  my-1 p-1">
+                <p><strong>Name:</strong> {{ member.name }}</p>
+                <p><strong>Email:</strong> {{ member.email }}</p>
+                <p><strong>Contact:</strong> {{ member.mobileNo }}</p>
+            </div>
+                
+        </ul>
+    </div>
+</div>

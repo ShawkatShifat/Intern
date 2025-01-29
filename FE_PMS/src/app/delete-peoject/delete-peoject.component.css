@@ -1,0 +1,38 @@
+.cardCD {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevents content from overflowing */
+    width: 100%; /* Adjust width as needed */
+    max-width: 600px; /* Set a max-width for the card */
+    margin: auto; /* Center the card */
+}
+
+.card {
+    background-color: white;
+    border: none; /* Remove default border */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.card-header {
+    text-align: center;
+    padding: 16px; /* Add padding to the header */
+    background-color: #f8f9fa; /* Optional: Add a light background */
+    border-bottom: 1px solid #e9ecef; /* Optional: Add a border */
+}
+
+.card-body {
+    padding: 16px; /* Add padding to the body */
+    display: flex;
+    justify-content: center;
+    gap: 16px; /* Add space between buttons */
+}
+
+#deleteBtn, #cancelBtn {
+    height: 40px;
+    width: 100px; /* Set a fixed width for buttons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,63 @@
+<div class="login">
+  <div class="container justify-content-center align-items-center align-content-center">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-4">
+          <div class="text-center mb-4">
+            <img 
+              src="assets/img/dphe-logo.png" 
+              alt="Logo" 
+              class="img-fluid" 
+              style="max-width: 150px; height: 80px;">
+          </div>
+          <h2 class="text-center mb-4 fs-3">Rural Development <br>Project Management <br>& Monitoring System</h2>
+          
+          <h3 class="text-center mb-4 fs-5">LOGIN</h3>
+          <form #loginForm="ngForm" (ngSubmit)="login()">
+            <div class="form-group mb-4">
+              <label for="username">Username :</label>
+              <input 
+                type="text" 
+                [(ngModel)]="username" 
+                [ngModelOptions]="{standalone:true}" 
+                id="username" 
+                name="username"
+                class="form-control" 
+                placeholder="Enter Username" 
+                required
+                #usernameCtrl="ngModel">
+              <div *ngIf="usernameCtrl.invalid && usernameCtrl.touched" class="text-danger">
+                Username is required.
+              </div>
+            </div>
+            <div class="form-group mb-4">
+              <label for="password">Password :</label>
+              <input 
+                type="password" 
+                [(ngModel)]="password" 
+                [ngModelOptions]="{standalone:true}" 
+                id="password" 
+                name="password"
+                class="form-control" 
+                placeholder="Enter Password" 
+                required
+                #passwordCtrl="ngModel">
+              <div *ngIf="passwordCtrl.invalid && passwordCtrl.touched" class="text-danger">
+                Password is required.
+              </div>
+            </div>
+            <div class="d-flex justify-content-center mt-3 flex-column">
+              <button type="submit" class="btn btn-primary btn-block" [disabled]="passwordCtrl.invalid || passwordCtrl.invalid">Login</button>
+              <div class="d-flex flex-row justify-content-center mt-3">
+                <p>Don't have an account?</p>
+                <a [routerLink]="['/register']" class="ms-1">Register</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
